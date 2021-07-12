@@ -32,7 +32,6 @@
             <span id="message_validation" class="error_message"></span>
          </div>
          <input id="submit_button" type="submit" value="Salvar" />
-         <a href="{{ url('/livro/excluir/'. $livro->id . '') }}"> Excluir </a>
 
       </form>
    </body>
