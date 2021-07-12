@@ -19,6 +19,14 @@ class LivrosController extends Controller
             'preco' => $request->preco
         ]);
 
-        return "Livro Salvo com Sucesso";
+        $livros = Livro::all();
+        return view('livros.show',  ['livros' =>  $livros]);
+
+    }
+
+    public function show(){
+
+        $livros = Livro::all();
+        return view('livros.show',  ['livros' =>  $livros]);
     }
 }

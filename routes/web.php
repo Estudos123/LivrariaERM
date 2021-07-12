@@ -20,5 +20,5 @@ Route::get('/', function () {
 
 Route::get('/livro/novo','LivrosController@create');
 Route::post('/livro/novo','LivrosController@store')->name('salvar_livro');
-Route::post('/livro/ver', 'LivrosController@show');
+Route::get('/livro/ver', 'LivrosController@show');
 
