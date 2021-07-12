@@ -21,4 +21,10 @@ Route::get('/', function () {
 Route::get('/livro/novo','LivrosController@create');
 Route::post('/livro/novo','LivrosController@store')->name('salvar_livro');
 Route::get('/livro/ver', 'LivrosController@show');
+Route::get('/livro/editar/{id}', 'LivrosController@edit');
+Route::post('/livro/editar/','LivrosController@update')->name('editar_livro');
+Route::get('/livro/excluir/{id}','LivrosController@destroy')->name('excluir_livro');
+
+
+
 

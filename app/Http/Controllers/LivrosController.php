@@ -19,8 +19,7 @@ class LivrosController extends Controller
             'preco' => $request->preco
         ]);
 
-        $livros = Livro::all();
-        return view('livros.show',  ['livros' =>  $livros]);
+        return redirect('/livro/ver');  
 
     }
 
@@ -28,5 +27,28 @@ class LivrosController extends Controller
 
         $livros = Livro::all();
         return view('livros.show',  ['livros' =>  $livros]);
+
+    }
+
+    public function edit($id){
+        $livro = Livro::findOrFail($id);
+        return view('livros.edit',  ['livro' =>  $livro, 'p_mensagem' => null]);
+    }
+
+    public function update(Request $request){
+        $params = $request->all(); 
+        $livro = Livro::findOrFail($params['id']);
+        $livro->fill($params);
+        $livro->save();
+        return view('livros.edit',  ['livro' =>  $livro, 'p_mensagem' => 'Livro Atualizado com sucesso']);
+    }
+
+
+    public function destroy($id){
+            $livro = Livro::find($id);
+            if($livro != null){
+            $livro->delete();
+            }
+            return redirect('/livro/ver');     
     }
 }

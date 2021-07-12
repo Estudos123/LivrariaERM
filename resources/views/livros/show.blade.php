@@ -1,3 +1,16 @@
+
+<?php
+/*** begin the session ***/
+session_start();
+ 
+/*** create the form token ***/
+$form_token = uniqid();
+ 
+/*** add the form token to the session ***/
+$_SESSION['form_token'] = $form_token;
+?>
+
+
 <!doctype html>
 <html>
 
@@ -11,9 +24,6 @@
     text-align: center;
     padding: 5px;
   };
-  
-
-
   
 </style>
 </head>
@@ -34,9 +44,14 @@
   <td> {{ $livro->nome }} </td>
   <td> {{ $livro->autor }} </td>
   <td> {{ $livro->preco }} </td>
+  <td> <a href="{{ url('/livro/editar/'. $livro->id . '') }}"> Editar </a></td>
+  <td> <a href="{{ url('/livro/excluir/'. $livro->id . '') }}"> Excluir </a>  </td>
 </tr>
 @endforeach
+
 </table>
+
+<button> <a href="{{ url('/livro/novo') }}"> Cadastrar Livro </a> </button> 
 
 </body>
 
