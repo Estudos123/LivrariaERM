@@ -8,9 +8,6 @@
       <div id="after_submit"></div>
       <form id="contact_form" action="{{ route('editar_livro')}}" method="POST" enctype="multipart/form-data">
          @csrf
-           @if ($p_mensagem)
-            <h3> {{ $p_mensagem }} </h3> 
-           @endif
          <input type="hidden" name="id" value="{{$livro->id}}" />
 
          <div class="row">

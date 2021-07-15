@@ -32,7 +32,7 @@ class LivrosController extends Controller
 
     public function edit($id){
         $livro = Livro::findOrFail($id);
-        return view('livros.edit',  ['livro' =>  $livro, 'p_mensagem' => null]);
+        return view('livros.edit',  ['livro' =>  $livro]);
     }
 
     public function update(Request $request){
@@ -40,10 +40,9 @@ class LivrosController extends Controller
         $livro = Livro::findOrFail($params['id']);
         $livro->fill($params);
         $livro->save();
-        return view('livros.edit',  ['livro' =>  $livro, 'p_mensagem' => 'Livro Atualizado com sucesso']);
+        return redirect('/livro/ver');     
     }
-
-
+    
     public function destroy($id){
             $livro = Livro::find($id);
             if($livro != null){
