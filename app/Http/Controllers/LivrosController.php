@@ -19,15 +19,14 @@ class LivrosController extends Controller
             'preco' => $request->preco
         ]);
 
-        return redirect('/livro/ver');  
+        return redirect('/livro/ver');
 
     }
 
     public function show(){
 
-        $livros = Livro::all();
+        $livros = Livro::paginate(10);
         return view('livros.show',  ['livros' =>  $livros]);
-
     }
 
     public function edit($id){
@@ -36,18 +35,18 @@ class LivrosController extends Controller
     }
 
     public function update(Request $request){
-        $params = $request->all(); 
+        $params = $request->all();
         $livro = Livro::findOrFail($params['id']);
         $livro->fill($params);
         $livro->save();
-        return redirect('/livro/ver');     
+        return redirect('/livro/ver');
     }
-    
+
     public function destroy($id){
             $livro = Livro::find($id);
             if($livro != null){
             $livro->delete();
             }
-            return redirect('/livro/ver');     
+            return redirect('/livro/ver');
     }
 }
