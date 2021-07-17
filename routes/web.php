@@ -14,17 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 
-Route::get('/livro/novo','LivrosController@create');
-Route::post('/livro/novo','LivrosController@store')->name('salvar_livro');
-Route::get('/livro/ver', 'LivrosController@show');
-Route::get('/livro/editar/{id}', 'LivrosController@edit');
-Route::post('/livro/editar/','LivrosController@update')->name('editar_livro');
-Route::get('/livro/excluir/{id}','LivrosController@destroy')->name('excluir_livro');
+Route::middleware(['auth:sanctum', 'verified'])->get('/livro/novo','LivrosController@create');
+Route::middleware(['auth:sanctum', 'verified'])->post('/livro/novo','LivrosController@store')->name('salvar_livro');
+Route::middleware(['auth:sanctum', 'verified'])->get('/livro/ver', 'LivrosController@show');
+Route::middleware(['auth:sanctum', 'verified'])->get('/livro/editar/{id}', 'LivrosController@edit');
+Route::middleware(['auth:sanctum', 'verified'])->post('/livro/editar/','LivrosController@update')->name('editar_livro');
+Route::middleware(['auth:sanctum', 'verified'])->get('/livro/excluir/{id}','LivrosController@destroy')->name('excluir_livro');
 
 
 
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

@@ -1,22 +1,4 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>{{'Desenvolvendo com Laravel' }}</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-
-    <style>
-
-    td, th {
-        text-align: center;
-    }
-
-    </style>
-</head>
-
-<body>
-
+    @include    ('layouts.header');
     <div class="container">
 
         <body>
@@ -55,18 +37,7 @@
             </table>
 
             {{ $livros->links() }}
-
-
-
+            
         </body>
-
     </div>
-
-    <script src="{{ asset('assets/js/jquery-1.11.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="{{ asset('assets/js/script.js') }}"></script>
-
-</body>
-
-</html>
+@include('layouts.footer');
