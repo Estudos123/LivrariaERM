@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <title> Ebook Online </title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <style>
+    th, td{
+        text-align: center;
+    }
+    </style>
 
 </head>
 
@@ -45,3 +50,4 @@
             </div>
         </div>
     </nav>
+

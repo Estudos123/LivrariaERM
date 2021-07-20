@@ -1,6 +1,7 @@
 $('.bi-trash').on('click', function (event) {
     event.preventDefault();
-    const url = document.getElementById("delete").href
+    const url = document.getElementById("deleteAccount").href
+
 
     swal({
         title: 'Are you sure?',

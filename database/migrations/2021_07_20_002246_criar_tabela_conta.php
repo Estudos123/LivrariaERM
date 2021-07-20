@@ -13,7 +13,7 @@ class CriarTabelaConta extends Migration
      */
     public function up()
     {
-        Schema::create('conta', function (Blueprint $table) {
+        Schema::create('contas', function (Blueprint $table) {
             $table->id();
             $table->integer('pessoa_id')->nullable();
             $table->string('matricula')->nullable();
@@ -22,6 +22,7 @@ class CriarTabelaConta extends Migration
             $table->decimal('valor')->nullable();
             $table->string('cod_barras')->nullable();
             $table->string('caminho_pdf')->nullable();
+            $table->boolean('ind_pago')->nullable()->default(false);
             $table->timestamps();
         });
     }

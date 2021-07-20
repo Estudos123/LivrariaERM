@@ -28,6 +28,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/livro/excluir/{id}','Livr
 Route::middleware(['auth:sanctum', 'verified'])->get('/conta/novo','ContaController@create');
 Route::middleware(['auth:sanctum', 'verified'])->post('/conta/novo','ContaController@store')->name('cadastrar_conta');
 Route::middleware(['auth:sanctum', 'verified'])->get('/conta/ver', 'ContaController@show');
+Route::middleware(['auth:sanctum', 'verified'])->get('/conta/editar/{id}', 'ContaController@edit');
+Route::middleware(['auth:sanctum', 'verified'])->post('/conta/editar/','ContaController@update')->name('editar_conta');
+Route::middleware(['auth:sanctum', 'verified'])->get('/conta/excluir/{id}','ContaController@destroy')->name('excluir_conta');
+
 
 
 

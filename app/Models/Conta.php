@@ -9,5 +9,5 @@ class Conta extends Model
 {
 
     use HasFactory;
-    protected $fillable = ['matricula', 'mes_referencia', 'data_vencimento','cod_barras', 'valor'];
+    protected $fillable = ['matricula', 'mes_referencia', 'data_vencimento','cod_barras', 'valor', 'ind_pago'];
 }

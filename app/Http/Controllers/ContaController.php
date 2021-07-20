@@ -21,11 +21,10 @@ class ContaController extends Controller
             'data_vencimento' => $request->data_vencimento,
             'valor' => $request->valor,
             'cod_barras' => $request->cod_barras,
+            'ind_pago' => false
         ]);
 
         return redirect('/conta/ver');
-
-
     }
 
     public function show()
@@ -33,5 +32,30 @@ class ContaController extends Controller
 
         $contas = Conta::paginate(10);
         return view('conta.show',  ['contas' =>  $contas]);
+    }
+
+    public function edit($id)
+    {
+        $conta = Conta::findOrFail($id);
+        return view('conta.edit', ['conta' => $conta]);
+    }
+
+    public function update(Request $request)
+    {
+        $params = $request->all();
+        $conta = Conta::findOrFail($params['id']);
+        $conta->fill($params);
+        $conta->save();
+
+        return redirect('conta/ver');
+    }
+
+    public function destroy($id)
+    {
+        $conta = Conta::find($id);
+        if ($conta != null) {
+            $conta->delete();
+        }
+        return redirect('/conta/ver');
     }
 }
