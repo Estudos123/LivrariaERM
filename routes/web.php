@@ -25,6 +25,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/livro/editar/{id}', 'Livr
 Route::middleware(['auth:sanctum', 'verified'])->post('/livro/editar/','LivrosController@update')->name('editar_livro');
 Route::middleware(['auth:sanctum', 'verified'])->get('/livro/excluir/{id}','LivrosController@destroy')->name('excluir_livro');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/conta/novo','ContaController@create');
+Route::middleware(['auth:sanctum', 'verified'])->post('/conta/novo','ContaController@store')->name('cadastrar_conta');
+Route::middleware(['auth:sanctum', 'verified'])->get('/conta/ver', 'ContaController@show');
+
 
 
 

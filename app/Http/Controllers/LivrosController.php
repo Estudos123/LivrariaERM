@@ -7,11 +7,9 @@ use App\Models\Livro;
 
 class LivrosController extends Controller
 {
-    public function create(){
-        return view('livros.create');
-    }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         Livro::create([
             'isbn' => $request->isbn,
             'nome' => $request->nome,
@@ -20,21 +18,23 @@ class LivrosController extends Controller
         ]);
 
         return redirect('/livro/ver');
-
     }
 
-    public function show(){
+    public function show()
+    {
 
         $livros = Livro::paginate(10);
         return view('livros.show',  ['livros' =>  $livros]);
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $livro = Livro::findOrFail($id);
         return view('livros.edit',  ['livro' =>  $livro]);
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         $params = $request->all();
         $livro = Livro::findOrFail($params['id']);
         $livro->fill($params);
@@ -42,11 +42,12 @@ class LivrosController extends Controller
         return redirect('/livro/ver');
     }
 
-    public function destroy($id){
-            $livro = Livro::find($id);
-            if($livro != null){
+    public function destroy($id)
+    {
+        $livro = Livro::find($id);
+        if ($livro != null) {
             $livro->delete();
-            }
-            return redirect('/livro/ver');
+        }
+        return redirect('/livro/ver');
     }
 }
