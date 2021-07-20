@@ -58,4 +58,13 @@ class ContaController extends Controller
         }
         return redirect('/conta/ver');
     }
+
+
+    public function informPayment($id)
+    {
+        $conta = Conta::findOrFail($id);
+        $conta->ind_pago = 1;
+        $conta->save();
+        return redirect('/conta/ver');
+    }
 }

@@ -31,6 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/conta/ver', 'ContaControl
 Route::middleware(['auth:sanctum', 'verified'])->get('/conta/editar/{id}', 'ContaController@edit');
 Route::middleware(['auth:sanctum', 'verified'])->post('/conta/editar/','ContaController@update')->name('editar_conta');
 Route::middleware(['auth:sanctum', 'verified'])->get('/conta/excluir/{id}','ContaController@destroy')->name('excluir_conta');
+Route::middleware(['auth:sanctum', 'verified'])->get('/conta/informarpagamento/{id}','ContaController@informPayment');
 
 
 
