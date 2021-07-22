@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Conta;
+use Illuminate\Support\Facades\DB;
 
 
 class ContaController extends Controller
@@ -29,9 +30,11 @@ class ContaController extends Controller
 
     public function show()
     {
+        $contas = Conta::paginate(5);
+        $contasPagas = Conta::getContas(true);
+        $contasPendentes = Conta::getContas(false);
 
-        $contas = Conta::paginate(10);
-        return view('conta.show',  ['contas' =>  $contas]);
+        return view('conta.show',  ['contas' =>  $contas, 'contasPagas' => $contasPagas, 'contasPendentes' => $contasPendentes]);
     }
 
     public function edit($id)
