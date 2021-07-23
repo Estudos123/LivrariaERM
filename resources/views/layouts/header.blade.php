@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
+
     <style>
+        body {
+            background-color: #d8e2dc;
+        }
+
+        ;
+
         th,
         td {
             text-align: center;
