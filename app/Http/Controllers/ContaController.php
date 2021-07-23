@@ -31,10 +31,17 @@ class ContaController extends Controller
     public function show()
     {
         $contas = Conta::paginate(5);
-        $contasPagas = Conta::getContas(true);
-        $contasPendentes = Conta::getContas(false);
-
-        return view('conta.show',  ['contas' =>  $contas, 'contasPagas' => $contasPagas, 'contasPendentes' => $contasPendentes]);
+        $contasPagas = Conta::getContas('P');
+        $contasPendentes = Conta::getContas('A');
+        $contasVencidas = Conta::getContas('V');
+        $totalContas = Conta::getContas('T');
+        return view('conta.show',  [
+            'contas' =>  $contas,
+            'contasPagas' => $contasPagas,
+            'contasPendentes' => $contasPendentes,
+            'contasVencidas' => $contasVencidas,
+            'totalContas' => $totalContas
+        ]);
     }
 
     public function edit($id)
