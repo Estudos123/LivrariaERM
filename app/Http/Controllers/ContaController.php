@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Conta;
 use App\Models\TipoContas;
 
+
 use Illuminate\Support\Facades\DB;
-
-
+use Psr\Http\Message\RequestInterface;
 
 class ContaController extends Controller
 {
@@ -40,9 +40,10 @@ class ContaController extends Controller
         return redirect('/conta/ver');
     }
 
-    public function show()
+    public function show(Request $request)
     {
-        $contas = Conta::paginate(5);
+
+        $contas = DB::table('contas')->whereRaw('contas.tipo_contas_id ='. ($request->tipoContasId ?? 'contas.tipo_contas_id'))->paginate(5);
         $contasPagas = Conta::getContas('P');
         $contasPendentes = Conta::getContas('A');
         $contasVencidas = Conta::getContas('V');
@@ -51,6 +52,8 @@ class ContaController extends Controller
         foreach ($contas as $conta) {
             $conta->tipo_conta = $this->showTypeContas($conta->id);
         }
+
+
 
         return view('conta.show',  [
             'contas' =>  $contas,
