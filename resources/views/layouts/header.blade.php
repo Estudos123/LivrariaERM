@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title> Ebook Online </title>
+    <title> Registro de Contas Eletrônicas </title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -81,14 +81,18 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
 
         <div class="container-fluid">
-            <a style="color:white" class="navbar-brand" href="#">Ebook Online</a>
+            <a style="color:white" class="navbar-brand" href="/">RCE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a style="color:white" class="nav-link active" aria-current="page" href="{{ route('salvar_livro') }}">Novo Livro</a>
+                        <a style="color:white" class="nav-link active" aria-current="page" href="{{ route('cadastrar_conta') }}">Cadastro de Contas</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a style="color:white" class="nav-link active" aria-current="page" href="{{ route('cadastrar_conta') }}">Cadastro de Tipo de Contas</a>
                     </li>
 
                 </ul>

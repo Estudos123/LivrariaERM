@@ -17,8 +17,19 @@
                 </div>
 
                 <div class="form-group">
+
+                    <label class="form-label" for="tipo_contas_id">Tipo da Conta:</label><br />
+                    <select id="tipo_contas_id" class="form-control" name="tipo_contas_id" type="text" value="">
+                        @foreach($tipoContas as $tipoConta)
+                        <option value="{{ $tipoConta->id }}"> {{ $tipoConta->descricao }}</option>
+                        @endforeach
+                    </select><br />
+                </div>
+
+
+                <div class="form-group">
                     <label class="label" for="referencia">Mês de Referência:</label><br />
-                    <input max="6," required id="referencia" class="form-control" name="mes_referencia" type="text" value="" /><br />
+                    <input maxlength="6," required id="referencia" class="form-control" name="mes_referencia" type="text" value="" /><br />
                 </div>
 
                 <div class="form-group">

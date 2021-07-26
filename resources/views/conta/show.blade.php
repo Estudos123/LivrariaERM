@@ -63,6 +63,7 @@
     <table class="table" style="margin-top:80px">
         <tr>
             <th> MATRICULA </th>
+            <th> Tipo da Conta </th>
             <th> MÊS DE REFERÊNCIA </th>
             <th> DATA DE VENCIMENTO </th>
             <th> VALOR </th>
@@ -74,6 +75,7 @@
         @foreach ($contas as &$conta)
         <tr>
             <td> {{ $conta->matricula }} </td>
+            <td> {{ $conta->tipo_conta->descricao }} </td>
             <td> {{ $conta->mes_referencia }} </td>
             <td> {{ date_format( new DateTime($conta->data_vencimento), 'd/m/y')}} </td>
             <td> R$ {{ str_replace('.', ',', $conta->valor) }} </td>

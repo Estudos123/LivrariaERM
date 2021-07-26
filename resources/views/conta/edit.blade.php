@@ -10,7 +10,7 @@
         <form class="col-sm-12" id="contact_form" action="{{ route('editar_conta')}}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <input type="hidden"  class="form-control" name="id" type="text" value='{{ $conta->id }}' /><br />
+            <input type="hidden" class="form-control" name="id" type="text" value='{{ $conta->id }}' /><br />
 
             <div class="row">
                 <div class="form-group">
@@ -18,6 +18,17 @@
                     <label class="form-label" for="matricula">Matrícula:</label><br />
                     <input id="matricula" class="form-control" name="matricula" type="text" value='{{ $conta->matricula }}' /><br />
                 </div>
+
+                <div class="form-group">
+
+                    <label class="form-label" for="tipo_contas_id">Tipo da Conta:</label><br />
+                    <select id="tipo_contas_id" class="form-control" name="tipo_contas_id" type="text">
+                        @foreach($tipoContas as $tipoConta)
+                        <option value="{{ $tipoConta->id }}" {{ $tipoConta->id == $conta->tipo_conta->id ? 'selected': '' }}> {{ $tipoConta->descricao }} </option>
+                        @endforeach
+                    </select><br />
+                </div>
+
 
                 <div class="form-group">
                     <label class="label" for="referencia">Mês de Referência:</label><br />

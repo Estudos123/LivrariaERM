@@ -4,20 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Conta;
+use App\Models\TipoContas;
+
 use Illuminate\Support\Facades\DB;
+
 
 
 class ContaController extends Controller
 {
+    private $tipoConta;
+
+    public function __construct()
+    {
+        $this->tipoConta = TipoContas::all();
+    }
+
     public function create()
     {
-        return view('conta.create');
+
+        return view('conta.create', ['tipoContas' => $this->tipoConta]);
     }
 
     public function store(Request $request)
     {
         Conta::create([
             'matricula' => $request->matricula,
+            'tipo_contas_id' => $request->tipo_contas_id,
             'mes_referencia' => $request->mes_referencia,
             'data_vencimento' => $request->data_vencimento,
             'valor' => $request->valor,
@@ -35,6 +47,11 @@ class ContaController extends Controller
         $contasPendentes = Conta::getContas('A');
         $contasVencidas = Conta::getContas('V');
         $totalContas = Conta::getContas('T');
+
+        foreach ($contas as $conta) {
+            $conta->tipo_conta = $this->showTypeContas($conta->id);
+        }
+
         return view('conta.show',  [
             'contas' =>  $contas,
             'contasPagas' => $contasPagas,
@@ -44,10 +61,18 @@ class ContaController extends Controller
         ]);
     }
 
+    public function showTypeContas($id)
+    {
+        $conta = Conta::find($id);
+        return $conta->getTipoContas;
+    }
+
+
     public function edit($id)
     {
         $conta = Conta::findOrFail($id);
-        return view('conta.edit', ['conta' => $conta]);
+        $conta->tipo_conta = $this->showTypeContas($id);
+        return view('conta.edit', ['conta' => $conta, 'tipoContas' => $this->tipoConta]);
     }
 
     public function update(Request $request)
