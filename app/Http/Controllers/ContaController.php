@@ -57,6 +57,7 @@ class ContaController extends Controller
 
         return view('conta.show',  [
             'contas' =>  $contas,
+            'tipoContas' => $this->tipoConta,
             'contasPagas' => $contasPagas,
             'contasPendentes' => $contasPendentes,
             'contasVencidas' => $contasVencidas,

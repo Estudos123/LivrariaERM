@@ -55,12 +55,25 @@
 <div class="card" style="margin: 25px; padding: 20px;">
 
     <h1 style="margin-top:50px"> Lista de Contas </h1>
-    <p> Do it now </p>
 
-    <a style="float:right" class="btn btn-outline-primary" href="{{ url('/conta/novo') }}"> Cadastrar Nova Conta</a>
+    <div class="form-group">
 
+        <a style="float:right" class="btn btn-outline-primary" href="{{ url('/conta/novo') }}"> Cadastrar Nova Conta</a>
+        <br>
+        <form class="d-flex", method="GET", action="{{ url('/conta/ver') }}" >
+            <select name="tipoContasId" style="max-width:300px" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            @foreach ($tipoContas as $tipoConta)
+            <option value="{{ $tipoConta->id }}"> {{ $tipoConta->descricao }} </option>
+            @endforeach
+            </select>
+            <button class="btn btn-outline-primary me-2" type="submit">Buscar</button>
+            <a href="{{ url('/conta/ver') }} " class="btn btn-outline-success" type="button">Limpar Filtros</a>
 
-    <table class="table" style="margin-top:80px">
+        </form>
+
+    </div>
+
+    <table class="table" style="margin-top:30px">
         <tr>
             <th> MATRICULA </th>
             <th> Tipo da Conta </th>
