@@ -29,3 +29,22 @@ $('#informarpagamento').on('click', function(event){
     });
 })
 
+
+/*
+$('#postTipoConta').on("submit", function(event) {
+    $form = $(this); //wrap this in jQuery
+    const url = $form.attr('action');
+    ajaxCall(url);
+});
+
+
+const  ajaxCall = (url) => {
+    alert(url);
+    return;
+    $.ajax({
+        url : 'example.com',
+        type: 'GET',
+        success : resData
+    })
+  }
+*/

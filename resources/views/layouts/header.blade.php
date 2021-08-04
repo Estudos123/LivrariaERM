@@ -8,6 +8,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
 
+
     <style>
         body {
             background-color: #d8e2dc;
@@ -92,7 +93,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a style="color:white" class="nav-link active" aria-current="page" href="{{ route('cadastrar_conta') }}">Cadastro de Tipo de Contas</a>
+                        <a role="button" style="color:white" class="nav-link active" aria-current="page" href=" {{url ('/tipoconta/ver   ') }}" >Cadastro de Tipo de Contas</a>
                     </li>
 
                 </ul>
@@ -119,3 +120,5 @@
             </div>
         </div>
     </nav>
+
+

@@ -1,6 +1,6 @@
 @include ('layouts.header');
 
-<div id="dashboard" class="card" ; style="margin: 25px; padding: 10px;">
+<div id="dashboard" class="card"  style="margin: 25px; padding: 10px;">
     <div class="row">
         <div class="col-md-4 col-xl-3">
             <div class="card bg-c-blue order-card">
@@ -115,8 +115,6 @@
     </table>
     {{ $contas->links() }}
 </div>
-
-
 
 
 

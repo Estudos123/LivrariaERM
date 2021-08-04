@@ -18,21 +18,24 @@ Route::get('/', function () {
 });
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/livro/novo','LivrosController@create');
-Route::middleware(['auth:sanctum', 'verified'])->post('/livro/novo','LivrosController@store')->name('salvar_livro');
+Route::middleware(['auth:sanctum', 'verified'])->get('/livro/novo', 'LivrosController@create');
+Route::middleware(['auth:sanctum', 'verified'])->post('/livro/novo', 'LivrosController@store')->name('salvar_livro');
 Route::middleware(['auth:sanctum', 'verified'])->get('/livro/ver', 'LivrosController@show');
 Route::middleware(['auth:sanctum', 'verified'])->get('/livro/editar/{id}', 'LivrosController@edit');
-Route::middleware(['auth:sanctum', 'verified'])->post('/livro/editar/','LivrosController@update')->name('editar_livro');
-Route::middleware(['auth:sanctum', 'verified'])->get('/livro/excluir/{id}','LivrosController@destroy')->name('excluir_livro');
+Route::middleware(['auth:sanctum', 'verified'])->post('/livro/editar/', 'LivrosController@update')->name('editar_livro');
+Route::middleware(['auth:sanctum', 'verified'])->get('/livro/excluir/{id}', 'LivrosController@destroy')->name('excluir_livro');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/conta/novo','ContaController@create');
-Route::middleware(['auth:sanctum', 'verified'])->post('/conta/novo','ContaController@store')->name('cadastrar_conta');
+Route::middleware(['auth:sanctum', 'verified'])->get('/conta/novo', 'ContaController@create');
+Route::middleware(['auth:sanctum', 'verified'])->post('/conta/novo', 'ContaController@store')->name('cadastrar_conta');
 Route::middleware(['auth:sanctum', 'verified'])->get('/conta/ver', 'ContaController@show');
 Route::middleware(['auth:sanctum', 'verified'])->get('/conta/editar/{id}', 'ContaController@edit');
-Route::middleware(['auth:sanctum', 'verified'])->post('/conta/editar/','ContaController@update')->name('editar_conta');
-Route::middleware(['auth:sanctum', 'verified'])->get('/conta/excluir/{id}','ContaController@destroy')->name('excluir_conta');
-Route::middleware(['auth:sanctum', 'verified'])->get('/conta/informarpagamento/{id}','ContaController@informPayment');
+Route::middleware(['auth:sanctum', 'verified'])->post('/conta/editar/', 'ContaController@update')->name('editar_conta');
+Route::middleware(['auth:sanctum', 'verified'])->get('/conta/excluir/{id}', 'ContaController@destroy')->name('excluir_conta');
+Route::middleware(['auth:sanctum', 'verified'])->get('/conta/informarpagamento/{id}', 'ContaController@informPayment');
 
+
+Route::middleware(['auth:sanctum', 'verified'])->post('/tipoconta/novo', 'TipoContaController@create');
+Route::middleware(['auth:sanctum', 'verified'])->get('/tipoconta/ver', 'TipoContaController@show');
 
 
 
